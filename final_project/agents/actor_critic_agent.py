@@ -33,8 +33,7 @@ class ActorCriticAgent(AbstractAgent):
         """
         # Once these models are trained, you might want to set them to evaluation mode during evaluation
         self._actor_model = MLPMultivariateGaussian(input_size=state_space.shape[0],
-                                                    output_size=action_space.shape[0]).to(
-            device=fetch_device())
+                                                    output_size=action_space.shape[0]).to(device=fetch_device())
         # output_size=1 because value function returns a scalar value.
         self._critic_model = MLP(input_size=state_space.shape[0], output_size=1).to(device=fetch_device())
 

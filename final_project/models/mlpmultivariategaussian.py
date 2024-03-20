@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.distributions import MultivariateNormal
+from torch.distributions import Distribution
 
 from final_project.models.twoheadedmlp import TwoHeadedMLP
 
@@ -45,7 +46,7 @@ class MLPMultivariateGaussian(TwoHeadedMLP):
         log_diag_chol = self.log_diag_chol_head(features)
         return mean, log_diag_chol
 
-    def predict(self, x: torch.Tensor) -> MultivariateNormal:
+    def predict(self, x: torch.Tensor) -> Distribution:
         """
         Predict a MultivariateNormal distribution given an input tensor.
 
